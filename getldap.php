@@ -1,3 +1,9 @@
+<?php 
+
+ob_start();
+
+?>
+
 <html>
   <body>
 
@@ -42,8 +48,8 @@
 					session_start();
 					$_SESSION['$login'] = $user;
 					$_SESSION['nik'] = $user['username'];
-					header("location: index.php?nik=$nik");
-					exit();
+					header("location: index.php?nik=$nik", true, 301);
+					ob_end_flush();
 				}else{
 					return [
 						'error' => true,
@@ -56,8 +62,8 @@
 					session_start();
 					$_SESSION['$login'] = $user;
 					$_SESSION['nik'] = $user['username'];
-					header("location: homepage.php?nik=$nik");
-					exit();
+					header("location: homepage.php?nik=$nik", true, 301);
+					ob_end_flush();
 				}else{
 					return [
 						'error' => true,
@@ -69,7 +75,7 @@
 		}
 		else
 		{
-			echo "GAGAL LOGIN";
+			echo "USER BELUM TERDAFTAR";
 		}
 ?>
 
