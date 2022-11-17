@@ -1,0 +1,5 @@
+@media print{
+    table th.th{
+        background-color: #e13838 !important;
+    }
+}
